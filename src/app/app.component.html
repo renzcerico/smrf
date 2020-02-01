@@ -1,0 +1,28 @@
+<app-top-bar></app-top-bar>
+<!-- style="min-height: 100% !important;" -->
+<div>
+    <mat-drawer-container class="w-100">
+        <mat-drawer mode="side" opened>
+          <ul class="list-group">
+            <li class="list-group-item">
+                <a href="#" [routerLink]="['/request']" class="text-muted font-weight-500">Create Request</a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" [routerLink]="['/manage-request']" class="text-muted font-weight-500">Manage Request</a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" [routerLink]="['/manage-request']" class="text-muted font-weight-500">Create Job Order</a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" [routerLink]="['/manage-request']" class="text-muted font-weight-500">Manage Job Order</a>
+            </li>
+          </ul>
+        </mat-drawer>
+        <mat-drawer-content>
+            <!-- MAIN COMPONENT -->
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
+
+<app-footer></app-footer>

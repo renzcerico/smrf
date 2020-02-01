@@ -1,0 +1,12 @@
+login (OK)
+	request 
+		- user (send to dept head)
+		- head (approver / acceptance)
+		- manager (final approver) 
+
+	receive
+		- emd dept head (approver)
+		- manpower (assigned manpower)
+logout (OK)
+
+user level - user, head, manager, supervisor (OK)

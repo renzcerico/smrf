@@ -1,0 +1,101 @@
+<!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <img src="/assets/img/logo.png" class="img-fluid" width="35px" 
+      tooltip="Tailin Abrasives Corporation" 
+      placement="bottom" /> &nbsp;
+    <a class="navbar-brand font-weight-bold text-green text-uppercase text-muted" 
+       href="#"
+       [routerLink]="['']">Service Maintenance</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+      <ul class="navbar-nav ml-auto text-uppercase">
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="dropdown_delivered" role="button">
+            DELIVERED
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdown_delivered" class="dropdown-menu dropdown-menu-right text-center">
+            <div *ngFor="let req of requests; let i = index;">
+              <a ngbDropdownItem href="#" 
+                 *ngIf="req.status == 'delivered'"
+                 [routerLink]="['/requests/', req.id]"
+                 class="small">
+                 Request {{ req.id }}
+              </a>
+            </div>
+            <a *ngIf="requests.length > 5" ngbDropdownItem href="#" class="small" (click)="$event.preventDefault()">See all</a>
+          </div>
+        </li>
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="dropdown_approved" role="button">
+            APPROVED
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdown_approved" class="dropdown-menu dropdown-menu-right text-center">
+            <div *ngFor="let req of requests">
+              <a ngbDropdownItem href="#"    
+                 *ngIf="req.status == 'approved'"
+                 [routerLink]="['/requests/', req.id]"
+                 class="small">
+                 Request {{ req.id }}
+              </a>
+            </div>
+            <a *ngIf="requests.length > 5" ngbDropdownItem href="#" class="small" (click)="$event.preventDefault()">See all</a>
+          </div>
+        </li>
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="dropdown_done" role="button">
+            DONE
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdown_done" class="dropdown-menu dropdown-menu-right text-center">
+            <div *ngFor="let req of requests; let i = index;">
+              <a ngbDropdownItem href="#" 
+                 *ngIf="req.status == 'done'"
+                 [routerLink]="['/requests/', req.id]"
+                 class="small">
+                 Request {{ req.id }}
+              </a>
+            </div>
+            <a *ngIf="requests.length > 5" ngbDropdownItem href="#" class="small" (click)="$event.preventDefault()">See all</a>
+          </div>
+        </li>
+        <li class="nav-item" ngbDropdown *ngIf="user">
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="dropdown_profile" role="button">
+              {{ user }}
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdown_profile" class="dropdown-menu dropdown-menu-right">
+            <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Change Password</a>
+            <a ngbDropdownItem href="#" (click)="logout()">Logout</a>
+          </div>
+        </li>
+        <li class="nav-item" ngbDropdown *ngIf="!user">
+          <a class="nav-link" style="cursor: pointer" [routerLink]="['/login/']">
+              LOGIN
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="position-fixed h-100 side-nav">
+    <ul class="list-group">
+      <li class="list-group-item active"><a href="#">Create Request</a></li>
+      <li class="list-group-item"><a href="#">Manage Request</a></li>
+      <li class="list-group-item"><a href="#">Create Job Order</a></li>
+      <li class="list-group-item"><a href="#">Manage Job Order</a></li>
+    </ul>
+  </div> -->
+
+  <nav>
+    <mat-toolbar class="bg-light navbar-light">
+      <img src="/assets/img/logo.png" class="img-fluid" width="35px" 
+          tooltip="Tailin Abrasives Corporation" 
+          placement="bottom" /> &nbsp;
+      <a class="navbar-brand text-uppercase text-muted" 
+        href="#"
+        [routerLink]="['']">
+        Service Maintenance
+      </a>
+    </mat-toolbar>
+    <mat-progress-bar [mode]="progressMode" value="100"></mat-progress-bar>
+  </nav>

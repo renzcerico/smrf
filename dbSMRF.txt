@@ -1,0 +1,40 @@
+tbl_request
+* id
+date_required
+machine
+priority
+department
+request
+description
+date_stopped
+date_resumed
+status (pending, cancelled, rejected, open, approved)
+created_by
+recipient (send to head)
+reviewed_by (head)
+approved_by (vp)
+date_reviewed
+date_approved
+created_at
+updated_at
+
+tbl_job_order
+* id
+request_id
+work_required
+problem_description ???
+issued_to
+date_required
+material
+manpower
+status_report
+date_started
+date_finished
+total_downtime
+acceptance ???
+rating ???
+remarks ???
+status(pending, wip, completed, closed)
+created_by
+created_at
+updated_at

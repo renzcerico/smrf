@@ -1,0 +1,160 @@
+<form class="m-3">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted mr-auto">Date Issued: Jan. 08, 2020</label>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <label class="font-weight-light small text-muted text-nowrap">Date Requested: Jan. 08, 2020</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted mr-auto">
+                Date / Time Received: Jan. 08, 2020 08:00
+            </label>
+        </div>
+    </div>
+    
+    <div class="row mt-1">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted text-nowrap mr-auto">Required <i class="text-danger font-weight-bold">*</i></label>
+        </div>
+    </div>
+
+    <div class="form-group row mt-4">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <mat-form-field class="w-100">
+                <textarea matInput placeholder="WORK REQUIRED" [(ngModel)]="jobOrderWorkRequired" name="jobOrderWorkRequired" rows="2" required></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <mat-form-field class="w-100">
+                <mat-label>Issued to</mat-label>
+                <mat-select [(ngModel)]="jobOrderIssuedTo" name="jobOrderIssuedTo" required>
+                    <mat-option value="0" disabled>PLEASE SELECT</mat-option>
+                    <mat-option value="1">JOHN DOE</mat-option>
+                    <mat-option value="2">JANE DOE</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <mat-form-field class="w-100">
+                <input matInput [matDatepicker]="picker" placeholder="DATE REQUIRED" [(ngModel)]="jobOrderDateRequired" name="jobOrderDateRequired" required />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <mat-form-field class="w-100">
+                <input matInput [(ngModel)]="jobOrderEstimatedTime" name="jobOrderEstimatedTime" placeholder="ESTIMATED TIME" required />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- SERVICE REPRESENTATIVE -->
+    <mat-slide-toggle class="to-gray" (click)="otherInfo()">Other Information</mat-slide-toggle>
+    <div *ngIf="attrOther">
+        <div class="form-group row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="d-flex inline-block">
+                    <mat-form-field class="w-100">
+                        <mat-label>MATERIAL</mat-label>
+                        <mat-select 
+                            [(ngModel)]="jobOrderMaterials" 
+                            name="jobOrderMaterials"
+                            id="jobOrderMaterials">
+                                <mat-option value="0" disabled>PLEASE SELECT</mat-option>
+                                <mat-option value="1">MATERIAL 1</mat-option>
+                                <mat-option value="2">MATERIAL 2</mat-option>
+                        </mat-select>
+                        <mat-hint class="small">To add material press enter / click the button.</mat-hint>
+                    </mat-form-field> &nbsp;
+                    <div>
+                        <button class="btn btn-dark btn-sm ml-1" (click)="btnAddMaterial()">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <ul>
+                    <li *ngFor="let material of materialList">
+                        <a href="#" class="text-muted font-weight-500" (click)="removeMaterial(material)">
+                            {{ material }}
+                            <span class="text-danger font-weight-bold">&times;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="d-flex inline-block">
+                    <app-manpower class="w-100"></app-manpower> &nbsp;
+                    <div>
+                        <button class="btn btn-dark btn-sm ml-1" (click)="btnAddManpower()">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <ul>
+                    <li *ngFor="let manpower of manpowerList">
+                        <a href="#" class="text-muted font-weight-500" (click)="removeManpower(manpower)">
+                            {{ manpower }}
+                            <span class="text-danger font-weight-bold">&times;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="w-100">
+                    <textarea matInput [(ngModel)]="jobOrderStatusReport" name="jobOrderStatusReport" rows="2" placeholder="STATUS REPORT"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <mat-form-field class="w-100">
+                    <input matInput [(ngModel)]="jobOrderDateStarted" name="jobOrderDateStarted" placeholder="DATE / TIME STARTED" />
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <mat-form-field class="w-100">
+                    <input matInput [(ngModel)]="jobOrderDateFinished" name="jobOrderDateFinished" placeholder="DATE / TIME FINISHED" />
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <mat-form-field class="w-100">
+                    <input matInput [(ngModel)]="jobOrderDowntime" name="jobOrderDowntime" placeholder="TOTAL DOWNTIME" />
+                    <mat-hint>MINUTES</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="w-100">
+                    <textarea matInput placeholder="NOTES" [(ngModel)]="jobOrderNotes" name="jobOrderNotes" rows="2"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <!-- *ngIf="requestDetails.status === 'approved'" -->
+    <div class="form-group row">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <button mat-raised-button color="warn" class="text-uppercase w-100">Cancel</button>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <button mat-raised-button color="primary" class="text-uppercase w-100" (click)="createJobOrder()">Create</button>
+        </div>
+    </div>
+</form>

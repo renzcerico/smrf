@@ -1,0 +1,85 @@
+<div class="m-3">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted mr-auto">Control No.: {{ controlNumber }}</label>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <label class="font-weight-light small text-muted text-nowrap">Date Requested: {{ dateRequested }}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted text-nowrap">Requested By: {{ requestedBy }}</label>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <label class="font-weight-light small text-muted text-nowrap">Supervisor: {{ approvedBy }}</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <label class="font-weight-light small text-muted text-nowrap">Priority: {{ requestedPriority }}</label>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <label class="font-weight-light small text-muted text-nowrap">Date Required: {{ requestedDateRequired }}</label>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <label class="font-weight-500 to-gray text-nowrap">
+                Department: 
+                <span>
+                    {{ requestedDepartment | uppercase }}
+                    <span *ngIf="requestedDepartment === 'opt'">
+                        - {{ requestedMachine | uppercase }}
+                    </span>
+                </span>
+            </label>
+
+            <div class="mb-2">
+                <label class="font-weight-500 to-gray text-nowrap" *ngIf="requestedAttachment">
+                    Attachment: 
+                    <mat-slide-toggle class="to-gray" (click)="setAttachment()">{{ attrAttachment === false ? 'SHOW' : 'HIDE' }}</mat-slide-toggle>
+                </label>
+                <img *ngIf="attrAttachment" src="{{ requestedAttachment }}" class="w-100" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <label class="font-weight-500 to-gray text-nowrap">
+                Request
+            </label>
+            <div class="m-3">
+                <table class="table table-bordered table-sm">
+                    <thead class="text-white">
+                        <tr>
+                            <th class="w-50">Request</th>
+                            <th class="w-50">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let req of reqDetails">
+                            <td>{{ req.description }}</td>
+                            <td>
+                                {{ req.remarks }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <label class="font-weight-500 to-gray text-nowrap">
+                NOTES: 
+                <span>HERE ARE THE NOTES.</span>    
+            </label>
+        </div>
+    </div>
+
+</div>

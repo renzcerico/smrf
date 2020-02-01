@@ -1,0 +1,21 @@
+<ng-template #content let-modal>
+    <div class="modal-body bg-white border-muted" id="requestModal" size="lg">
+        <div class="text-uppercase">
+            <app-request-summary [setRequest]="request" ngbAutofocus></app-request-summary>
+        </div>
+
+        <hr />
+        <!-- Show if request type = details && user level = head / manager -->
+        <div class="form-group row m-3">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <button class="btn btn-danger form-control text-uppercase">Reject</button>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <button class="btn btn-success form-control text-uppercase">Approve</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="getRequest(content)">Large modal</button>

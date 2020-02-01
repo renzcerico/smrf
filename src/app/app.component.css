@@ -1,0 +1,28 @@
+html,
+body {
+    height: 100% !important;
+}
+
+li {
+    border-radius: 0 !important;
+}
+
+.list-group-item:hover {
+    background-color: #673ab7;
+    border: 1px solid #673ab7;
+}
+
+.list-group-item:hover a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+mat-drawer {
+    top: 68px;
+    position: fixed;
+    height: 100%;
+}
+
+mat-drawer-content {
+    padding-top: 5rem !important;
+}
